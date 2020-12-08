@@ -3,7 +3,7 @@
     <h2>Articles</h2>
     <div class="Articles__container my-8 w-2/3 mx-auto">
       <load-more
-        :limit="2"
+        :limit="1"
         :url="url"
         is-route-synced
       >
