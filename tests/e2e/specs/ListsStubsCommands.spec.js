@@ -48,7 +48,7 @@ describe("Showcases more advanced examples", () => {
             cy.wait("@fetchProducts")
                 .its("responseBody")
                 .then((response) => {
-                    expect(response[0]).to.have.property("name", "VueMastery");
+                    expect(response[0]).to.have.property("name", "Car");
                     // assert if any of the elements contains the first item
                     cy.getByTestId("productListItemSeller").should(
                         "contain",
@@ -81,7 +81,7 @@ describe("Showcases more advanced examples", () => {
             clickNext();
             /* Showcase Nesting to share data */
             cy.wait("@fetchProducts").then(({ responseBody }) => {
-                cy.contains("Majesty");
+                cy.contains("Bus");
                 onPage(3);
 
                 cy.get(".ProductListItem")

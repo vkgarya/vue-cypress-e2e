@@ -4,9 +4,9 @@ describe("FilterProducts", () => {
         cy.route("GET", "/products/*").as("fetchProduct");
         cy.visit("/");
 
-        cy.getByTestId("productSearchInput").type("Vue{enter}");
+        cy.getByTestId("productSearchInput").type("Boat{enter}");
         cy.onRoute("productList");
-        cy.contains("VueMastery").click();
+        cy.contains("Boat").click();
 
         cy.onRoute("product");
     });

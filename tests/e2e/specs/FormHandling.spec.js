@@ -19,18 +19,18 @@ describe("Shows how to test a basic form", () => {
         // check if fields have errors and type into them
         cy.getByTestId("name")
             .isInvalid("Name is required")
-            .type("Vue enterprise boilerplate");
+            .type("New Product");
 
         cy.getByTestId("seller")
             .isInvalid("Seller is required")
             .type("Chris Fritz");
 
         cy.getByTestId("image")
-            .type("Vue enterprise boilerplate")
+            .type("New Product")
             .isInvalid("Image must be a valid url")
             .clear()
             .type(
-                "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg"
+                "https://sites.google.com/site/nowsxmasperioddddd/_/rsrc/1323374131436/my-wishes-are/abycycle/Bicicleta.jpg"
             );
 
         cy.getByTestId("rating")
@@ -47,11 +47,7 @@ describe("Shows how to test a basic form", () => {
 
         cy.getByTestId("submit").click();
 
-        cy.isPopupVisible(
-            "info",
-            "Vue enterprise boilerplate saved successfully.",
-            true
-        );
+        cy.isPopupVisible("info", "Product saved successfully.", true);
 
         cy.wait("@postProduct")
             .its("responseBody")
