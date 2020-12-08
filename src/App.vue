@@ -3,11 +3,11 @@
     <div id="nav">
       <router-link :to="{ name: 'home' }">Home</router-link>
       |
-      <router-link :to="{ name: 'articleList' }">Articles</router-link>
+      <router-link :to="{ name: 'productList' }">Products</router-link>
       |
-      <router-link :to="{ name: 'addArticle' }">Add Article</router-link>
+      <router-link :to="{ name: 'addProduct' }">Add Product</router-link>
       |
-      <article-search class="inline-block" />
+      <product-search class="inline-block" />
     </div>
     <router-view />
   </div>
@@ -34,9 +34,9 @@
 }
 </style>
 <script>
-import ArticleSearch from './components/ArticleSearch'
+import ProductSearch from './components/ProductSearch'
 
 export default {
-  components: { ArticleSearch }
+  components: { ProductSearch }
 }
 </script>

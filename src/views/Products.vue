@@ -1,7 +1,7 @@
 <template>
-  <div class="Articles">
-    <h2>Articles</h2>
-    <div class="Articles__container my-8 w-2/3 mx-auto">
+  <div class="Products">
+    <h2>Products</h2>
+    <div class="Products__container my-8 w-2/3 mx-auto">
       <load-more
         :limit="1"
         :url="url"
@@ -17,19 +17,19 @@
 </template>
 
 <script>
-import ItemsList from '../components/ArticleList'
+import ItemsList from '../components/ProductList'
 import LoadMore from '../components/LoadMore'
 
 /**
- * @module Articles
+ * @module Products
  */
 export default {
-  name: 'Articles',
+  name: 'Products',
   components: { LoadMore, ItemsList },
   computed: {
     url () {
       const query = this.$route.query.q ? `?q=${this.$route.query.q}` : ''
-      return `articles` + query
+      return `products` + query
     }
   }
 }

@@ -1,0 +1,17 @@
+[{
+        "id": 998,
+        "seller": "Dobromir Hristov",
+        "name": "e2e testing with Cypress.io",
+        "rating": "5",
+        "image": "",
+        "body": ""
+    },
+    {
+        "id": 999,
+        "seller": "Georgi Hristov",
+        "name": "Houdini for beginners",
+        "rating": "5",
+        "image": "",
+        "body": ""
+    }
+]

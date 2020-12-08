@@ -1,16 +1,16 @@
 <template>
-  <form @submit.prevent="search" class="ArticleSearch">
-    <input type="text" v-model="query" placeholder="Find Articles" data-testid="articleSearchInput">
+  <form @submit.prevent="search" class="ProductSearch">
+    <input type="text" v-model="query" placeholder="Find Products" data-testid="productSearchInput">
     <button type="submit" class="hidden">Search</button>
   </form>
 </template>
 
 <script>
 /**
- * @module ArticleSearch
+ * @module ProductSearch
  */
 export default {
-  name: 'ArticleSearch',
+  name: 'ProductSearch',
   data () {
     return {
       query: ''
@@ -19,7 +19,7 @@ export default {
   methods: {
     search () {
       this.$router.push({
-        name: 'articleList',
+        name: 'productList',
         query: {
           q: this.query
         }

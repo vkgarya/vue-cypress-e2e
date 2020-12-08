@@ -1,17 +1,17 @@
 <template>
-  <div class="RegisterArticle">
+  <div class="RegisterProduct">
     <form @submit.prevent="submit" class="w-2/3 mx-auto">
       <form-wrapper :validator="$v.form">
         <div class="-mx-4">
           <div class="flex">
-            <form-group class="w-1/2 px-4" name="title">
+            <form-group class="w-1/2 px-4" name="name">
               <input
                   slot-scope="{ attrs, events }"
                   v-bind="attrs"
                   v-on="events"
               >
             </form-group>
-            <form-group class="w-1/2 px-4" name="author">
+            <form-group class="w-1/2 px-4" name="seller">
               <input
                   slot-scope="{ attrs, events }"
                   v-bind="attrs"
@@ -57,7 +57,7 @@
         </div>
         <div class="text-right">
           <button data-testid="submit" class="button" type="submit">
-            Save article
+            Save product
           </button>
         </div>
       </form-wrapper>
@@ -68,10 +68,10 @@
 <script>
 import { required, numeric, url } from 'vuelidate/lib/validators'
 
-function articleForm () {
+function productForm () {
   return {
-    title: '',
-    author: '',
+    name: '',
+    seller: '',
     image: '',
     rating: 0,
     body: ''
@@ -79,19 +79,19 @@ function articleForm () {
 }
 
 /**
- * @module RegisterArticle
+ * @module RegisterProduct
  */
 export default {
-  name: 'RegisterArticle',
+  name: 'RegisterProduct',
   data () {
     return {
-      form: articleForm()
+      form: productForm()
     }
   },
   validations: {
     form: {
-      title: { required },
-      author: { required },
+      name: { required },
+      seller: { required },
       image: { url },
       rating: { numeric },
       body: {}
@@ -101,14 +101,14 @@ export default {
     submit () {
       this.$v.form.$touch()
       if (this.$v.form.$error) return
-      this.$api.post('articles', this.form)
+      this.$api.post('products', this.form)
         .then((response) => {
           const data = response.data
-          this.$notify.confirm(`${data.title} saved successfully. Do you want to check it out?`)
+          this.$notify.confirm(`${data.name} saved successfully. Do you want to check it out?`)
             .then((yes) => {
-              if (yes.value) this.$router.push({ name: 'article', params: { id: data.id } })
+              if (yes.value) this.$router.push({ name: 'product', params: { id: data.id } })
             })
-          this.form = articleForm()
+          this.form = productForm()
           this.$v.form.$reset()
         })
         .catch((e) => {

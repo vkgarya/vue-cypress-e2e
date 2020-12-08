@@ -1,6 +1,6 @@
 <template>
-  <div class="ArticleList">
-    <article-list-item
+  <div class="ProductList">
+    <product-list-item
         v-for="item in items"
         :key="item.id"
         :item="item"
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import ArticleListItem from './ArticleListItem'
+import ProductListItem from './ProductListItem'
 
 /**
- * @module ArticleList
+ * @module ProductList
  */
 export default {
-  name: 'ArticleList',
-  components: { ArticleListItem },
+  name: 'ProductList',
+  components: { ProductListItem },
   props: {
     items: {
       type: Array,
